@@ -4,10 +4,10 @@
 erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 	setup: function() {
 		this._super();
-		var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);
-                //df.read_only = 1;
-		frm.toggle_display(df, true);
 		frappe.ui.form.on(this.frm.doctype + " Item", "rate", function(frm, cdt, cdn) {
+			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);
+               		 //df.read_only = 1;
+			frm.toggle_display(df, true);
 			var item = frappe.get_doc(cdt, cdn);
 			var has_margin_field = frappe.meta.has_field(cdt, 'margin_type');
 
