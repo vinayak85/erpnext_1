@@ -4,7 +4,8 @@
 erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 	setup: function() {
 		this._super();
-		frappe.msgprint(__("hello"));
+		var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_name", cur_frm.doc.name);
+                df.read_only = 1;
 		frappe.ui.form.on(this.frm.doctype + " Item", "rate", function(frm, cdt, cdn) {
 			var item = frappe.get_doc(cdt, cdn);
 			var has_margin_field = frappe.meta.has_field(cdt, 'margin_type');
