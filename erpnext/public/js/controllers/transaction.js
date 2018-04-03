@@ -7,7 +7,8 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		frappe.ui.form.on(this.frm.doctype + " Item", "rate", function(frm, cdt, cdn) {
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);
                		 //df.read_only = 1;
-			frm.toggle_display(df, false);
+			//frm.toggle_display(df, false);
+			objToString(df);
 			var item = frappe.get_doc(cdt, cdn);
 			var has_margin_field = frappe.meta.has_field(cdt, 'margin_type');
 
@@ -1198,4 +1199,14 @@ erpnext.show_serial_batch_selector = function(frm, d) {
 			},
 		});
 	});
+}
+
+function objToString (obj) {
+    var str = '';
+    for (var p in obj) {
+        if (obj.hasOwnProperty(p)) {
+            str += p + '::' + obj[p] + '\n';
+        }
+    }
+    alert(str.toString());
 }
