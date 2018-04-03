@@ -1,0 +1,7 @@
+ch
+bench restart
+cd /home/frappe/frappe-bench/apps/erpnext/
+python -m compileall .
+
+k
+
