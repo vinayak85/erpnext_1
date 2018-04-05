@@ -6,7 +6,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this._super();		
 		var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);		
                	df.hidden = 1;
-		alert(this.frm.fields);
+		//alert(this.frm.fields);
 		//frm.toggle_display(df, false);
 		//objToString(this.frm.fields);
 		frappe.ui.form.on(this.frm.doctype + " Item", "rate", function(frm, cdt, cdn) {
