@@ -234,9 +234,11 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		if(!this.frm.doc.is_return) {
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice", cur_frm.doc.name);		
                         df.hidden = 1;
+			df.read_only = 1;
 		}else{
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice", cur_frm.doc.name);		
                         df.hidden = 0;
+			df.read_only = 0;
 		}
 			
 		//objToString(this.frm.doc);	
