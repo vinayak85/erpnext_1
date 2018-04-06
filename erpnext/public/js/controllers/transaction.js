@@ -230,8 +230,14 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.show_item_wise_taxes();
 		this.set_dynamic_labels();
 		this.setup_sms();
-		//var df = frappe.meta.get_docfield(this.frm.doctype,"is_return", cur_frm.doc.name);	
-		objToString(this.frm.doc);	
+		
+		if(!doc.is_return) {
+			alert("not Ret");
+		}else{
+			alert(" Ret");
+		}
+			
+		//objToString(this.frm.doc);	
 	},
 
 	apply_default_taxes: function() {
