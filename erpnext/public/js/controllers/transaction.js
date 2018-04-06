@@ -232,9 +232,11 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.setup_sms();
 		
 		if(!this.frm.doc.is_return) {
-			alert("not Ret");
+			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice", cur_frm.doc.name);		
+                        df.hidden = 1;
 		}else{
-			alert(" Ret");
+			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice", cur_frm.doc.name);		
+                        df.hidden = 0;
 		}
 			
 		//objToString(this.frm.doc);	
