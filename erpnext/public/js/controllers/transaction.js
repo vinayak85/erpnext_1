@@ -15,7 +15,11 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		//alert(this.frm.fields);
 		//frm.toggle_display(df, false);
 		//objToString(this.frm.fields);
+		var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
+                objToString(df);
 		
+		var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice", this.frm.doc.name);		
+                objToString(df);
 		
 		frappe.ui.form.on(this.frm.doctype + " Item", "rate", function(frm, cdt, cdn) {
 			
@@ -233,7 +237,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.set_dynamic_labels();
 		this.setup_sms();
 		
-		if(!this.frm.doc.is_return) {
+		/*if(!this.frm.doc.is_return) {
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice", this.frm.doc.name);		
                         df.hidden = 1;
 	                 alert("No Ret");
@@ -243,7 +247,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
                         df.hidden = 0;
 			alert(" Ret");
 			//df.read_only = 0;
-		}
+		}*/
 			
 		//objToString(this.frm.doc);	
 	},
