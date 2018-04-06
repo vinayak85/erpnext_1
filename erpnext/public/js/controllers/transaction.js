@@ -15,6 +15,19 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		//alert(this.frm.fields);
 		//frm.toggle_display(df, false);
 		//objToString(this.frm.fields);
+		
+		if(!this.frm.doc.is_return) {
+			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);		
+                        df.hidden = 1;
+			alert("No Ret");
+			//df.read_only = 1;
+		}else{
+			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);		
+                        df.hidden = 0;
+			alert(" Ret");
+			//df.read_only = 0;
+		}
+		
 		frappe.ui.form.on(this.frm.doctype + " Item", "rate", function(frm, cdt, cdn) {
 			
 			var item = frappe.get_doc(cdt, cdn);
@@ -231,17 +244,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.set_dynamic_labels();
 		this.setup_sms();
 		
-		if(!this.frm.doc.is_return) {
-			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);		
-                        df.hidden = 1;
-			alert("No Ret");
-			//df.read_only = 1;
-		}else{
-			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);		
-                        df.hidden = 0;
-			alert(" Ret");
-			//df.read_only = 0;
-		}
+		
 			
 		//objToString(this.frm.doc);	
 	},
