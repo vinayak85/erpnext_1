@@ -8,8 +8,8 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
                	df.hidden = 1;
 		//alert(this.frm.is_return);
 		//frm.toggle_display(df, false);
-		objToString(this.frm);
-		alert(this.frm.fields);
+		//objToString(this.frm);
+		objToString(this.frm.fields);
 		//alert(this.frm.fields);
 		//frm.toggle_display(df, false);
 		//objToString(this.frm.fields);
