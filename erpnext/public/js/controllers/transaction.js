@@ -231,7 +231,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.set_dynamic_labels();
 		this.setup_sms();
 		//var df = frappe.meta.get_docfield(this.frm.doctype,"is_return", cur_frm.doc.name);	
-		objToString(this.frm.doc.is_return);	
+		objToString(this.frm.doc);	
 	},
 
 	apply_default_taxes: function() {
