@@ -231,7 +231,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.set_dynamic_labels();
 		this.setup_sms();
 		
-		if(!doc.is_return) {
+		if(!this.frm.doc.is_return) {
 			alert("not Ret");
 		}else{
 			alert(" Ret");
