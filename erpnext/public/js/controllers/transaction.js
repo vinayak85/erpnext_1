@@ -4,12 +4,13 @@
 erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 	setup: function() {
 		this._super();		
-		var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);		
-               	df.hidden = 1;
+		//var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);		
+                //df.hidden = 1;
 		//alert(this.frm.is_return);
 		//frm.toggle_display(df, false);
 		//objToString(this.frm);
-		objToString(this.frm.fields);
+		//objToString(this.frm.fields);
+		alert("hiii");
 		//alert(this.frm.fields);
 		//frm.toggle_display(df, false);
 		//objToString(this.frm.fields);
