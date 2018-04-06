@@ -12,7 +12,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		var df = frappe.meta.get_docfield(this.frm.doctype,"is_return", cur_frm.doc.name);	
 		//objToString(df);
 		alert(df);
-		alert(this.frm.doc.is_return);
+		alert(cur_frm.doc.is_return);
 		//alert("hiii");
 		//alert(this.frm.fields);
 		//frm.toggle_display(df, false);
