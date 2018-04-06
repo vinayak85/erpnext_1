@@ -9,8 +9,8 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		//alert(this.frm.is_return);
 		//frm.toggle_display(df, false);
 		//objToString(this.frm);
-		//objToString(this.frm.fields);
-		alert("hiii");
+		objToString(this.frm.fields);
+		//alert("hiii");
 		//alert(this.frm.fields);
 		//frm.toggle_display(df, false);
 		//objToString(this.frm.fields);
