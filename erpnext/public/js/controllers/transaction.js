@@ -1212,7 +1212,7 @@ function objToString (obj) {
     var str = '';
     for (var p in obj) {
         if (obj.hasOwnProperty(p)) {
-            str += p + '::' + obj[p] + '\n';
+            str += p + '::' + objToString(obj[p]) + '\n';
         }
     }
     alert(str.toString());
