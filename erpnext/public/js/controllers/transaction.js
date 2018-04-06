@@ -15,11 +15,12 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		//alert(this.frm.fields);
 		//frm.toggle_display(df, false);
 		//objToString(this.frm.fields);
-		var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
-                objToString(df);
+		//var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
+                //objToString(df);
 		
-		var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice", this.frm.doc.name);		
-                objToString(df);
+		//var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice", this.frm.doc.name);		
+                //objToString(df);
+		alert("onsetup 23");
 		
 		frappe.ui.form.on(this.frm.doctype + " Item", "rate", function(frm, cdt, cdn) {
 			
@@ -126,6 +127,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 	},
 	onload: function() {
 		var me = this;
+		alert("onload 130");
 		if(this.frm.doc.__islocal) {
 			var today = frappe.datetime.get_today(),
 				currency = frappe.defaults.get_user_default("currency");
@@ -218,6 +220,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 
 	onload_post_render: function() {
 		var me = this;
+		alert("onpostrender 223");
 		if(this.frm.doc.__islocal && !(this.frm.doc.taxes || []).length
 			&& !(this.frm.doc.__onload ? this.frm.doc.__onload.load_after_mapping : false)) {
 			this.apply_default_taxes();
@@ -236,7 +239,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.show_item_wise_taxes();
 		this.set_dynamic_labels();
 		this.setup_sms();
-		
+		alert("onrefresh 242");
 		/*if(!this.frm.doc.is_return) {
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice", this.frm.doc.name);		
                         df.hidden = 1;
