@@ -179,6 +179,8 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 					filters: filters
 				}
 			});
+			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", cur_frm.doc.name);		
+                         df.hidden = 0;
 			/*
 			if(!this.frm.doc.is_return) {
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
