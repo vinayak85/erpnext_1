@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 from frappe.utils import flt, get_datetime, format_datetime
+from msgprint
 
 class StockOverReturnError(frappe.ValidationError): pass
 
@@ -223,7 +224,8 @@ def make_return_doc(doctype, source_name, target_doc=None):
 				doc.base_paid_amount = -1 * source.base_paid_amount
 
 		doc.discount_amount = -1 * source.discount_amount
-		doc.run_method("calculate_taxes_and_totals")
+		msgprint(_("py"));
+		#doc.run_method("calculate_taxes_and_totals")
 
 	def update_item(source_doc, target_doc, source_parent):
 		target_doc.qty = -1* source_doc.qty
