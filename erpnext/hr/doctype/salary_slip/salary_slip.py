@@ -229,7 +229,14 @@ class SalarySlip(TransactionBase):
 		holidays = self.get_holidays_for_employee(self.start_date, self.end_date)
 		working_days = date_diff(self.end_date, self.start_date) + 1
 		#vin code start
-		if(self.get_holiday_setting_from_salary_stucture() == 0):		
+		if(self.get_holiday_setting_from_salary_stucture() == 0):
+			frappe.msgprint(_("0:"+str(holidays)+","+ str(working_days)));
+		else:
+			frappe.msgprint(_("1:"+str(holidays)+","+ str(working_days)));
+			pass
+		
+		
+			
 		#if not cint(frappe.db.get_value("HR Settings", None, "include_holidays_in_total_working_days")):
 		#vin code end
 			working_days -= len(holidays)
