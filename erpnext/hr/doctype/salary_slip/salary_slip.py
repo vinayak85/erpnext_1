@@ -240,7 +240,7 @@ class SalarySlip(TransactionBase):
 		#if not cint(frappe.db.get_value("HR Settings", None, "include_holidays_in_total_working_days")):
 		#vin code end
 			working_days -= len(holidays)
-			frappe.msgprint(_(str(holidays)+","+ str(working_days)));
+			#frappe.msgprint(_(str(holidays)+","+ str(working_days)));
 			if working_days < 0:
 				frappe.throw(_("There are more holidays than working days this month."))
 
