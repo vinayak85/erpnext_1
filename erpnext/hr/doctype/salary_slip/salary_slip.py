@@ -434,3 +434,10 @@ def unlink_ref_doc_from_salary_slip(ref_no):
 		for ss in linked_ss:
 			ss_doc = frappe.get_doc("Salary Slip", ss)
 			frappe.db.set_value("Salary Slip", ss_doc.name, "journal_entry", "")
+
+#vin code start
+def get_holiday_setting_from_salary_stucture(self):
+	frappe.msgprint(_(self.salary_structure));
+	
+#vin code end	
+	
