@@ -230,9 +230,9 @@ class SalarySlip(TransactionBase):
 		working_days = date_diff(self.end_date, self.start_date) + 1
 		#vin code start
 		#frappe.msgprint(_(self.end_date));
-		self.get_holiday_setting_from_salary_stucture()
+		if(self.get_holiday_setting_from_salary_stucture() == 0):		
+		#if not cint(frappe.db.get_value("HR Settings", None, "include_holidays_in_total_working_days")):
 		#vin code end
-		if not cint(frappe.db.get_value("HR Settings", None, "include_holidays_in_total_working_days")):
 			working_days -= len(holidays)
 			if working_days < 0:
 				frappe.throw(_("There are more holidays than working days this month."))
@@ -267,7 +267,11 @@ class SalarySlip(TransactionBase):
 
 		payment_days = date_diff(end_date, start_date) + 1
 
-		if not cint(frappe.db.get_value("HR Settings", None, "include_holidays_in_total_working_days")):
+		#vin code start
+		#frappe.msgprint(_(self.end_date));
+		if(self.get_holiday_setting_from_salary_stucture() == 0):		
+		#if not cint(frappe.db.get_value("HR Settings", None, "include_holidays_in_total_working_days")):
+		#vin code end		
 			holidays = self.get_holidays_for_employee(start_date, end_date)
 			payment_days -= len(holidays)
 		return payment_days
