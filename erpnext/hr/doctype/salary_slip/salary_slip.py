@@ -231,7 +231,7 @@ class SalarySlip(TransactionBase):
 		#vin code start
 		if((self.get_holiday_setting_from_salary_stucture() < 2 ) and (self.get_holiday_setting_from_salary_stucture() == 0 )):
 			frappe.msgprint(_("0:"+str(holidays)+","+ str(working_days)));
-		else if((self.get_holiday_setting_from_salary_stucture() < 2 ) and  (self.get_holiday_setting_from_salary_stucture() == 1 )):
+		elif((self.get_holiday_setting_from_salary_stucture() < 2 ) and  (self.get_holiday_setting_from_salary_stucture() == 1 )):
 			frappe.msgprint(_("1:"+str(holidays)+","+ str(working_days)));
 			pass
 		
