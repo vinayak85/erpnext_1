@@ -430,8 +430,9 @@ class SalarySlip(TransactionBase):
 	
 	#vin code start
 	def get_holiday_setting_from_salary_stucture(self):
-		setting=frappe.db.sql("""SELECT include_holidays_in_total_working_days as setting FROM 1bd3e0294da19198.`tabSalary Structure` where name={0}""".format("'"+self.salary_structure+"'"),as_dict=1)
-		frappe.msgprint(_(setting[0].setting));
+		if(len(self.salary_structure) > 0):
+			setting=frappe.db.sql("""SELECT include_holidays_in_total_working_days as setting FROM 1bd3e0294da19198.`tabSalary Structure` where name={0}""".format("'"+self.salary_structure+"'"),as_dict=1)
+			frappe.msgprint(_(setting[0].setting));
 	
 	#vin code end
 
