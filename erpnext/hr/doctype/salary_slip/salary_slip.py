@@ -427,6 +427,12 @@ class SalarySlip(TransactionBase):
 		elif self.docstatus == 2:
 			status = "Cancelled"
 		return status
+	
+	#vin code start
+	def get_holiday_setting_from_salary_stucture(self):
+		frappe.msgprint(_(self.salary_structure));
+	
+	#vin code end
 
 def unlink_ref_doc_from_salary_slip(ref_no):
 	linked_ss = frappe.db.sql_list("""select name from `tabSalary Slip`
@@ -436,9 +442,5 @@ def unlink_ref_doc_from_salary_slip(ref_no):
 			ss_doc = frappe.get_doc("Salary Slip", ss)
 			frappe.db.set_value("Salary Slip", ss_doc.name, "journal_entry", "")
 
-#vin code start
-def get_holiday_setting_from_salary_stucture(self):
-	frappe.msgprint(_(self.salary_structure));
 	
-#vin code end	
 	
