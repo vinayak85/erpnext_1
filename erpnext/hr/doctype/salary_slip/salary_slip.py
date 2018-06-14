@@ -451,7 +451,7 @@ class SalarySlip(TransactionBase):
 				ret=0
 				pass
 			pass
-		frappe.msgprint(_(ret));
+		#frappe.msgprint(_(ret));
 		return ret
 			
 	
