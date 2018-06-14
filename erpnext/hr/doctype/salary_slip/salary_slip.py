@@ -230,19 +230,21 @@ class SalarySlip(TransactionBase):
 		working_days = date_diff(self.end_date, self.start_date) + 1
 		#vin code start
 		if((self.get_holiday_setting_from_salary_stucture() < 2 ) and (self.get_holiday_setting_from_salary_stucture() == 0 )):
-			frappe.msgprint(_("0:"+str(holidays)+","+ str(working_days)));
+			
+			#frappe.msgprint(_("0:"+str(holidays)+","+ str(working_days)));
+			working_days -= len(holidays)
+			if working_days < 0:
+				frappe.throw(_("There are more holidays than working days this month."))
+				
 		elif((self.get_holiday_setting_from_salary_stucture() < 2 ) and  (self.get_holiday_setting_from_salary_stucture() == 1 )):
-			frappe.msgprint(_("1:"+str(holidays)+","+ str(working_days)));
+			#frappe.msgprint(_("1:"+str(holidays)+","+ str(working_days)));
 			pass
 		
 		
 			
 		#if not cint(frappe.db.get_value("HR Settings", None, "include_holidays_in_total_working_days")):
 		#vin code end
-			working_days -= len(holidays)
-			#frappe.msgprint(_(str(holidays)+","+ str(working_days)));
-			if working_days < 0:
-				frappe.throw(_("There are more holidays than working days this month."))
+			
 
 		actual_lwp = self.calculate_lwp(holidays, working_days)
 		if not lwp:
@@ -274,13 +276,23 @@ class SalarySlip(TransactionBase):
 
 		payment_days = date_diff(end_date, start_date) + 1
 
+				
 		#vin code start
-		#frappe.msgprint(_(self.end_date));
-		if(self.get_holiday_setting_from_salary_stucture() == 0):		
-		#if not cint(frappe.db.get_value("HR Settings", None, "include_holidays_in_total_working_days")):
-		#vin code end		
+		if((self.get_holiday_setting_from_salary_stucture() < 2 ) and (self.get_holiday_setting_from_salary_stucture() == 0 )):
+			
+			#frappe.msgprint(_("0:"+str(holidays)+","+ str(working_days)));
 			holidays = self.get_holidays_for_employee(start_date, end_date)
 			payment_days -= len(holidays)
+				
+		elif((self.get_holiday_setting_from_salary_stucture() < 2 ) and  (self.get_holiday_setting_from_salary_stucture() == 1 )):
+			#frappe.msgprint(_("1:"+str(holidays)+","+ str(working_days)));
+			pass
+		
+		
+			
+		#if not cint(frappe.db.get_value("HR Settings", None, "include_holidays_in_total_working_days")):
+		#vin code end
+			
 		return payment_days
 
 	def get_holidays_for_employee(self, start_date, end_date):
