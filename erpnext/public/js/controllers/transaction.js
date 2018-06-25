@@ -1226,11 +1226,20 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 				'posting_date': me.frm.doc.posting_date || frappe.datetime.nowdate(),
 			}
 			if(item.warehouse) filters["warehouse"] = item.warehouse
-
-			return {
+			if(frm.doc.is_return) {
+				return {
 				query : "erpnext.controllers.queries.get_batch_no",
 				filters: filters
 			}
+			}
+			else
+			{
+				return {
+				query : "erpnext.controllers.queries.get_batch_no_reurn",
+				filters: filters
+				}
+			}
+			
 		}
 	},
 });
