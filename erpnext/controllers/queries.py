@@ -240,7 +240,6 @@ def get_delivery_notes_to_be_billed(doctype, txt, searchfield, start, page_len, 
 	}, { "txt": ("%%%s%%" % txt) }, as_dict=as_dict)
 
 def get_batch_no(doctype, txt, searchfield, start, page_len, filters):
-	msgprint(_(doctype));
 	cond = ""
 	if filters.get("posting_date"):
 		cond = "and (ifnull(batch.expiry_date, '')='' or batch.expiry_date >= %(posting_date)s)"
@@ -281,7 +280,52 @@ def get_batch_no(doctype, txt, searchfield, start, page_len, filters):
 			{match_conditions}
 			order by expiry_date, name desc
 			limit %(start)s, %(page_len)s""".format(cond, match_conditions=get_match_cond(doctype)), args)
+	
+# vin code start
+def get_batch_no_return(doctype, txt, searchfield, start, page_len, filters):
+	msgprint(_("return"));
+	cond = ""
+	if filters.get("posting_date"):
+		cond = "and (ifnull(batch.expiry_date, '')='' or batch.expiry_date >= %(posting_date)s)"
 
+	batch_nos = None
+	args = {
+		'item_code': filters.get("item_code"),
+		'warehouse': filters.get("warehouse"),
+		'posting_date': filters.get('posting_date'),
+		'txt': "%{0}%".format(txt),
+		"start": start,
+		"page_len": page_len
+	}
+
+	if args.get('warehouse'):
+		batch_nos = frappe.db.sql("""select sle.batch_no, round(sum(sle.actual_qty),2), sle.stock_uom, batch.expiry_date
+				from `tabStock Ledger Entry` sle
+				    INNER JOIN `tabBatch` batch on sle.batch_no = batch.name
+				where
+					sle.item_code = %(item_code)s
+					and sle.warehouse = %(warehouse)s
+					and sle.batch_no like %(txt)s
+					and batch.docstatus < 2
+					{0}
+					{match_conditions}
+				group by batch_no having sum(sle.actual_qty) > 0
+				order by batch.expiry_date, sle.batch_no desc
+				limit %(start)s, %(page_len)s""".format(cond, match_conditions=get_match_cond(doctype)), args)
+
+	if batch_nos:
+		return batch_nos
+	else:
+		return frappe.db.sql("""select name, expiry_date from `tabBatch` batch
+			where item = %(item_code)s
+			and name like %(txt)s
+			and docstatus < 2
+			{0}
+			{match_conditions}
+			order by expiry_date, name desc
+			limit %(start)s, %(page_len)s""".format(cond, match_conditions=get_match_cond(doctype)), args)
+	
+# vin code end
 def get_account_list(doctype, txt, searchfield, start, page_len, filters):
 	filter_list = []
 
