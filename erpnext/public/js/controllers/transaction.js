@@ -1233,11 +1233,11 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 				//query : "erpnext.controllers.queries.get_batch_no_return",
 				//filters: filters
 			//}
-				frappe.throw(__("eeeerrrr"));
+				//frappe.throw(__("eeeerrrr"));
 			//}
 			//else
 			//{
-				alert('nn11');
+				alert(doc.is_return);
 				return {
 				query : "erpnext.controllers.queries.get_batch_no_return",
 				filters: filters
