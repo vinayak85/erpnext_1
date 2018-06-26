@@ -1227,22 +1227,22 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 			if(item.warehouse) filters["warehouse"] = item.warehouse
 			
 			//vin code start
-			//if(frm.doc.is_return) {
-				//alert('r11');
-				//return {
-				//query : "erpnext.controllers.queries.get_batch_no_return",
-				//filters: filters
-			//}
-				//frappe.throw(__("eeeerrrr"));
-			//}
-			//else
-			//{
-				alert(doc.is_return);
+			if(doc.is_return) {
+				
 				return {
 				query : "erpnext.controllers.queries.get_batch_no_return",
 				filters: filters
+			}
+				
+			}
+			else
+			{
+				alert(doc.is_return);
+				return {
+				query : "erpnext.controllers.queries.get_batch_no",
+				filters: filters
 				}
-			//}
+			}
 			
 			//vin code end
 			
