@@ -1225,24 +1225,24 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 				'posting_date': me.frm.doc.posting_date || frappe.datetime.nowdate(),
 			}
 			if(item.warehouse) filters["warehouse"] = item.warehouse
-			alert(frm.doc.is_return);
+			
 			//vin code start
-			if(frm.doc.is_return) {
+			//if(frm.doc.is_return) {
 				//alert('r11');
 				//return {
 				//query : "erpnext.controllers.queries.get_batch_no_return",
 				//filters: filters
 			//}
 				frappe.throw(__("eeeerrrr"));
-			}
-			else
-			{
+			//}
+			//else
+			//{
 				alert('nn11');
 				return {
-				query : "erpnext.controllers.queries.get_batch_no",
+				query : "erpnext.controllers.queries.get_batch_no_return",
 				filters: filters
 				}
-			}
+			//}
 			
 			//vin code end
 			
