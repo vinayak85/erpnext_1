@@ -283,7 +283,6 @@ def get_batch_no(doctype, txt, searchfield, start, page_len, filters):
 	
 # vin code start
 def get_batch_no_return(doctype, txt, searchfield, start, page_len, filters):
-	msgprint(_("return"));
 	cond = ""
 	if filters.get("posting_date"):
 		cond = "and (ifnull(batch.expiry_date, '')='' or batch.expiry_date >= %(posting_date)s)"
@@ -299,6 +298,7 @@ def get_batch_no_return(doctype, txt, searchfield, start, page_len, filters):
 	}
 
 	if args.get('warehouse'):
+		msgprint(_("1"));
 		batch_nos = frappe.db.sql("""select sle.batch_no, round(sum(sle.actual_qty),2), sle.stock_uom, batch.expiry_date
 				from `tabStock Ledger Entry` sle
 				    INNER JOIN `tabBatch` batch on sle.batch_no = batch.name
@@ -314,8 +314,10 @@ def get_batch_no_return(doctype, txt, searchfield, start, page_len, filters):
 				limit %(start)s, %(page_len)s""".format(cond, match_conditions=get_match_cond(doctype)), args)
 
 	if batch_nos:
+		msgprint(_("2"));
 		return batch_nos
 	else:
+		msgprint(_("3"));
 		return frappe.db.sql("""select name, expiry_date from `tabBatch` batch
 			where item = %(item_code)s
 			and name like %(txt)s
