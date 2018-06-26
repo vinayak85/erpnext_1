@@ -283,6 +283,7 @@ def get_batch_no(doctype, txt, searchfield, start, page_len, filters):
 	
 # vin code start
 def get_batch_no_return(doctype, txt, searchfield, start, page_len, filters):
+	msgprint(_("ret"));
 	cond = ""
 	if filters.get("posting_date"):
 		cond = "and (ifnull(batch.expiry_date, '')='' or batch.expiry_date >= %(posting_date)s)"
