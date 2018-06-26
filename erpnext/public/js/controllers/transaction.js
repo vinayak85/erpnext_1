@@ -1207,8 +1207,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 	},
 
 	set_query_for_batch: function(doc, cdt, cdn) {
-		// Show item's batches in the dropdown of batch no
-		frappe.msgprint(__("vvvvvvvvvvvvvvn'"));
+		// Show item's batches in the dropdown of batch no		
 		var me = this;
 		var item = frappe.get_doc(cdt, cdn);
 
@@ -1229,11 +1228,12 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 			alert(frm.doc.is_return);
 			//vin code start
 			if(frm.doc.is_return) {
-				alert('r11');
-				return {
-				query : "erpnext.controllers.queries.get_batch_no_return",
-				filters: filters
-			}
+				//alert('r11');
+				//return {
+				//query : "erpnext.controllers.queries.get_batch_no_return",
+				//filters: filters
+			//}
+				frappe.throw(__("eeeerrrr"));
 			}
 			else
 			{
