@@ -1229,6 +1229,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 			
 			//vin code start
 			if(frm.doc.is_return) {
+				alert('r11');
 				return {
 				query : "erpnext.controllers.queries.get_batch_no_return",
 				filters: filters
@@ -1236,6 +1237,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 			}
 			else
 			{
+				alert('nn11');
 				return {
 				query : "erpnext.controllers.queries.get_batch_no",
 				filters: filters
