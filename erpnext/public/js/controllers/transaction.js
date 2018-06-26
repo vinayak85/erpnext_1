@@ -1208,7 +1208,8 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 
 	set_query_for_batch: function(doc, cdt, cdn) {
 		// Show item's batches in the dropdown of batch no
-
+		alert('hi');
+		alert(frm.doc.is_return);
 		var me = this;
 		var item = frappe.get_doc(cdt, cdn);
 
