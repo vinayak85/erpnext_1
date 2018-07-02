@@ -1225,7 +1225,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 				'posting_date': me.frm.doc.posting_date || frappe.datetime.nowdate(),
 			}
 			if(item.warehouse) filters["warehouse"] = item.warehouse
-			
+			/*
 			//vin code start
 			if(doc.is_return) {
 				
@@ -1243,6 +1243,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 				filters: filters
 				}
 			}
+			*/
 			
 			//vin code end
 			
