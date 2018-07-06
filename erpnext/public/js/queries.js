@@ -21,9 +21,11 @@ $.extend(erpnext.queries, {
 	},
 
 	item: function(filters) {
+		/* vin code start comment
 		var args = { query: "erpnext.controllers.queries.item_query" };
 		if(filters) args["filters"] = filters;
 		return args;
+		vin code start comment */ 
 	},
 
 	bom: function() {
