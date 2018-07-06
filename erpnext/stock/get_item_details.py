@@ -82,7 +82,8 @@ def get_item_details(args):
 			out.serial_no = get_serial_no(out)
 
 		if out.has_batch_no and not args.get("batch_no"):
-			out.batch_no = get_batch_no(out.item_code, out.warehouse, out.qty)
+			#out.batch_no = get_batch_no(out.item_code, out.warehouse, out.qty)
+			out.batch_no = "ABCDXYZ"
 
 
 	if args.transaction_date and item.lead_time_days:
