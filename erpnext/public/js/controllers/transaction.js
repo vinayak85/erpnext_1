@@ -1244,7 +1244,10 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 				}
 			}
 			*/
-			
+			return {
+				query : "erpnext.controllers.queries.get_batch_no",
+				filters: filters
+				}
 			//vin code end
 			
 		}
