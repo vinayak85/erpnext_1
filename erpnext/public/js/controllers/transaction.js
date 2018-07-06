@@ -314,7 +314,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 	},
 
 	item_code: function(doc, cdt, cdn, from_barcode) {
-		var me = this;
+		/*var me = this;
 		var item = frappe.get_doc(cdt, cdn);
 		var update_stock = 0, show_batch_dialog = 0;
 
@@ -383,6 +383,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 				});
 			}
 		}
+		*/
 	},
 
 	serial_no: function(doc, cdt, cdn) {
