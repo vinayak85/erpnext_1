@@ -340,9 +340,9 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 					child: item,
 					args: {
 						args: {
-							item_code: item.item_code,
+							/*item_code: item.item_code,
 							barcode: item.barcode,
-							/*serial_no: item.serial_no,*/
+							serial_no: item.serial_no,
 							warehouse: item.warehouse,
 							customer: me.frm.doc.customer,
 							supplier: me.frm.doc.supplier,
@@ -351,7 +351,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 							conversion_rate: me.frm.doc.conversion_rate,
 							price_list: me.frm.doc.selling_price_list || me.frm.doc.buying_price_list,
 							price_list_currency: me.frm.doc.price_list_currency,
-							plc_conversion_rate: me.frm.doc.plc_conversion_rate,
+							plc_conversion_rate: me.frm.doc.plc_conversion_rate,*/
 							company: me.frm.doc.company,
 							order_type: me.frm.doc.order_type,
 							is_pos: cint(me.frm.doc.is_pos),
