@@ -339,10 +339,10 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 					method: "erpnext.stock.get_item_details.get_item_details",
 					child: item,
 					args: {
-						/*args: {
+						args: {
 							item_code: item.item_code,
 							barcode: item.barcode,
-							serial_no: item.serial_no,
+							/*serial_no: item.serial_no,*/
 							warehouse: item.warehouse,
 							customer: me.frm.doc.customer,
 							supplier: me.frm.doc.supplier,
@@ -364,11 +364,11 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 							qty: item.qty || 1,
 							stock_qty: item.stock_qty,
 							conversion_factor: item.conversion_factor
-						}*/
+						}
 					},
 
 					callback: function(r) {
-						if(!r.exc) {/*
+						if(!r.exc) {
 							me.frm.script_manager.trigger("price_list_rate", cdt, cdn);
 							me.toggle_conversion_factor(item);
 							if(show_batch_dialog) {
@@ -377,7 +377,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 									if(!d[k]) d[k] = v;
 								});
 								erpnext.show_serial_batch_selector(me.frm, d);
-							}*/
+							}
 						}
 					}
 				});
