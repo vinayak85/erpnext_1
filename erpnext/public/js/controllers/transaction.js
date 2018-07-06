@@ -339,7 +339,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 					method: "erpnext.stock.get_item_details.get_item_details",
 					child: item,
 					args: {
-						args: {
+						/*args: {
 							item_code: item.item_code,
 							barcode: item.barcode,
 							serial_no: item.serial_no,
@@ -364,7 +364,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 							qty: item.qty || 1,
 							stock_qty: item.stock_qty,
 							conversion_factor: item.conversion_factor
-						}
+						}*/
 					},
 
 					callback: function(r) {
