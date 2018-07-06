@@ -342,12 +342,12 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 						args: {
 							item_code: item.item_code,
 							barcode: item.barcode,
-							/*serial_no: item.serial_no,
+							serial_no: item.serial_no,
 							warehouse: item.warehouse,
-							customer: me.frm.doc.customer,
+							/*customer: me.frm.doc.customer,
 							supplier: me.frm.doc.supplier,
-							currency: me.frm.doc.currency,
-							update_stock: update_stock,*/
+							currency: me.frm.doc.currency,*/
+							update_stock: update_stock,
 							conversion_rate: me.frm.doc.conversion_rate,
 							price_list: me.frm.doc.selling_price_list || me.frm.doc.buying_price_list,
 							price_list_currency: me.frm.doc.price_list_currency,
