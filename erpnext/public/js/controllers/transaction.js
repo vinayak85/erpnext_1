@@ -340,8 +340,8 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 					child: item,
 					args: {
 						args: {
-							/*item_code: item.item_code,
-							barcode: item.barcode,
+							item_code: item.item_code,
+							/*barcode: item.barcode,
 							serial_no: item.serial_no,
 							warehouse: item.warehouse,
 							customer: me.frm.doc.customer,
