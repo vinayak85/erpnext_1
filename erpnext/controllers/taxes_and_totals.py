@@ -71,6 +71,7 @@ class calculate_taxes_and_totals(object):
 				#Arjun Code Start
 				if item.doctype in ['Sales Invoice Item']:
 					if item.discount_amount > 0 :
+						frappe.msgprint(_(item.discount_amount))
 						item.net_amount = flt(item.amount-item.discount_amount,	item.precision("net_amount"))
 				#Arjun Code End				
 				
