@@ -68,6 +68,12 @@ class calculate_taxes_and_totals(object):
 				item.amount = flt(item.rate * item.qty,	item.precision("amount"))
 				item.net_amount = item.amount
 
+				#Arjun Code Start
+				if item.doctype in ['Sales Invoice Item']:
+					if item.discount_amount > 0 :
+						item.net_amount = flt(item.amount-item.discount_amount,	item.precision("net_amount"))
+				#Arjun Code End				
+				
 				self._set_in_company_currency(item, ["price_list_rate", "rate", "net_rate", "amount", "net_amount"])
 
 				item.item_tax_amount = 0.0
