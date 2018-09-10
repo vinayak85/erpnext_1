@@ -142,7 +142,7 @@ erpnext.queries.setup_queries = function(frm, options, query_fn) {
 			set_query(df.options, df.fieldname);
 		});
 }
-
+//vinayak test comment
 /* 	if item code is selected in child table
 	then list down warehouses with its quantity
 	else apply default filters.
