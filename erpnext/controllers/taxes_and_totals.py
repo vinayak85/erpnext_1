@@ -88,7 +88,7 @@ class calculate_taxes_and_totals(object):
 		for f in fields:
 			val = flt(flt(doc.get(f), doc.precision(f)) * self.doc.conversion_rate, doc.precision("base_" + f))
 			doc.set("base_" + f, val)
-			frappe.msgprint(_("base_" + f + str(val)))
+			#frappe.msgprint(_("base_" + f + str(val)))
 
 	def initialize_taxes(self):
 		for tax in self.doc.get("taxes"):
