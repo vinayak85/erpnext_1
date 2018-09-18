@@ -681,6 +681,11 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.conversion_factor(doc, cdt, cdn, true);
 		this.apply_pricing_rule(frappe.get_doc(cdt, cdn), true);
 	},
+	
+	discount_amount: function(doc, cdt, cdn) {
+		this.conversion_factor(doc, cdt, cdn, true);
+		this.apply_pricing_rule(frappe.get_doc(cdt, cdn), true);
+	},
 
 	set_dynamic_labels: function() {
 		// What TODO? should we make price list system non-mandatory?
