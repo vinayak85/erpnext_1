@@ -263,7 +263,6 @@ class SalesInvoice(SellingController):
 			paid_amount += data.amount
 			base_paid_amount += data.base_amount
 
-		frappe.msgprint(_(paid_amount))
 		self.paid_amount = paid_amount
 		self.base_paid_amount = base_paid_amount
 
