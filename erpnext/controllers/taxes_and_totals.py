@@ -467,14 +467,24 @@ class calculate_taxes_and_totals(object):
 			self.calculate_write_off_amount()
 			self.calculate_change_amount()
 			
+			#arjun code strat 
+			total_disc_amount_on_item = self.doc.total_discount
+			#arjun code end
+			
 			paid_amount = self.doc.paid_amount \
 				if self.doc.party_account_currency == self.doc.currency else self.doc.base_paid_amount
 			
 			change_amount = self.doc.change_amount \
 				if self.doc.party_account_currency == self.doc.currency else self.doc.base_change_amount
 
-			self.doc.outstanding_amount = flt(total_amount_to_pay - flt(paid_amount) +
+			#comment by arjun 19-09-2018
+			'''self.doc.outstanding_amount = flt(total_amount_to_pay - flt(paid_amount) +
+				flt(change_amount), self.doc.precision("outstanding_amount"))'''
+			
+			#arjun code strat
+			self.doc.outstanding_amount = flt(total_amount_to_pay - flt(paid_amount) - flt(total_disc_amount_on_item) +
 				flt(change_amount), self.doc.precision("outstanding_amount"))
+			#arjun code end
 
 		elif self.doc.doctype == "Purchase Invoice":
 			self.doc.outstanding_amount = flt(total_amount_to_pay, self.doc.precision("outstanding_amount"))
