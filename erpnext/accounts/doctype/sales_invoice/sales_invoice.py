@@ -103,6 +103,7 @@ class SalesInvoice(SellingController):
 		set_account_for_mode_of_payment(self)
 
 	def on_submit(self):
+		frappe.msgprint(_(self))
 		self.validate_pos_paid_amount()
 
 		if not self.recurring_id:
