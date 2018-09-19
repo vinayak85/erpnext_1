@@ -482,12 +482,18 @@ class calculate_taxes_and_totals(object):
 				flt(change_amount), self.doc.precision("outstanding_amount"))'''
 			
 			#arjun code strat
-			if self.doc.grand_total!=self.doc.outstanding_amount:
+			if self.doc.grand_total != self.doc.outstanding_amount:
 				self.doc.outstanding_amount = flt(total_amount_to_pay - flt(paid_amount) - flt(total_disc_amount_on_item) + 
 								  flt(change_amount), self.doc.precision("outstanding_amount"))
 			else:
-				self.doc.outstanding_amount = flt(total_amount_to_pay - flt(paid_amount) +
+				outstand_amount = flt(total_amount_to_pay - flt(paid_amount) +
 				flt(change_amount), self.doc.precision("outstanding_amount"))
+				
+				if flt(self.doc.grand_total) > flt(outstand_amount):
+					self.doc.outstanding_amount = flt(total_amount_to_pay - flt(paid_amount) + flt(total_disc_amount_on_item) + 
+									  flt(change_amount), self.doc.precision("outstanding_amount"))
+				else:
+					self.doc.outstanding_amount = flt(outstand_amount, self.doc.precision("outstanding_amount"))
 			#arjun code end
 
 		elif self.doc.doctype == "Purchase Invoice":
