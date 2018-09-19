@@ -469,6 +469,11 @@ class calculate_taxes_and_totals(object):
 			
 			#arjun code strat 
 			total_disc_amount_on_item = self.doc.total_discount
+			
+			total_amount_to_pay = flt(flt(self.doc.grand_total *
+				self.doc.conversion_rate, self.doc.precision("grand_total")) - self.doc.total_advance
+					- flt(self.doc.base_write_off_amount), self.doc.precision("grand_total"))
+			total_amount_to_pay=flt(total_amount_to_pay - flt(total_disc_amount_on_item))
 			#arjun code end
 			
 			paid_amount = self.doc.paid_amount \
@@ -476,12 +481,11 @@ class calculate_taxes_and_totals(object):
 			
 			change_amount = self.doc.change_amount \
 				if self.doc.party_account_currency == self.doc.currency else self.doc.base_change_amount
-
-			#comment by arjun 19-09-2018
+			
 			self.doc.outstanding_amount = flt(total_amount_to_pay - flt(paid_amount) +
 				flt(change_amount), self.doc.precision("outstanding_amount"))
 			
-			frappe.msgprint(_(str(paid_amount) +"  "+str(change_amount)))
+			#comment by arjun 19-09-2018
 			#arjun code strat
 			'''if self.doc.grand_total != self.doc.outstanding_amount:
 				self.doc.outstanding_amount = flt(total_amount_to_pay - flt(paid_amount) - flt(total_disc_amount_on_item) + 
