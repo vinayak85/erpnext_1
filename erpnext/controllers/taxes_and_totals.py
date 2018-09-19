@@ -481,6 +481,7 @@ class calculate_taxes_and_totals(object):
 			self.doc.outstanding_amount = flt(total_amount_to_pay - flt(paid_amount) +
 				flt(change_amount), self.doc.precision("outstanding_amount"))
 			
+			frappe.msgprint(_(str(paid_amount) +"  "+str(change_amount)))
 			#arjun code strat
 			'''if self.doc.grand_total != self.doc.outstanding_amount:
 				self.doc.outstanding_amount = flt(total_amount_to_pay - flt(paid_amount) - flt(total_disc_amount_on_item) + 
