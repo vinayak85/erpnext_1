@@ -469,10 +469,10 @@ class calculate_taxes_and_totals(object):
 			
 			#arjun code strat 
 			total_disc_amount_on_item = self.doc.total_discount
-			
-			total_amount_to_pay = flt(flt(self.doc.grand_total *
-				self.doc.conversion_rate, self.doc.precision("grand_total")) - self.doc.total_advance
-					- flt(self.doc.base_write_off_amount), self.doc.precision("grand_total"))
+			#total grand_total "grand_total"
+			total_amount_to_pay = flt(flt(self.doc.total *
+				self.doc.conversion_rate, self.doc.precision("total")) - self.doc.total_advance
+					- flt(self.doc.base_write_off_amount), self.doc.precision("total"))
 			total_amount_to_pay=flt(total_amount_to_pay - flt(total_disc_amount_on_item))
 			#arjun code end
 			
