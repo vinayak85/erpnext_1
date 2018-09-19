@@ -102,8 +102,7 @@ class SalesInvoice(SellingController):
 	def before_save(self):
 		set_account_for_mode_of_payment(self)
 
-	def on_submit(self):
-		frappe.msgprint(_("on_submit(self)"))
+	def on_submit(self):		
 		self.validate_pos_paid_amount()
 
 		if not self.recurring_id:
@@ -253,8 +252,7 @@ class SalesInvoice(SellingController):
 				(not sales_invoice and data.sales_invoice == self.name):
 				data.sales_invoice = sales_invoice
 
-	def on_update(self):
-		frappe.msgprint(_("on_update(self)"))
+	def on_update(self):		
 		self.set_paid_amount()
 
 	def set_paid_amount(self):
@@ -265,6 +263,7 @@ class SalesInvoice(SellingController):
 			paid_amount += data.amount
 			base_paid_amount += data.base_amount
 
+		frappe.msgprint(_(paid_amount))
 		self.paid_amount = paid_amount
 		self.base_paid_amount = base_paid_amount
 
