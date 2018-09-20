@@ -194,6 +194,7 @@ def make_return_doc(doctype, source_name, target_doc=None):
 		doc.is_return = 1
 		doc.return_against = source.name
 		doc.ignore_pricing_rule = 1
+		frappe.msgprint(_(doc.grand_total))
 		if doctype == "Sales Invoice":
 			doc.is_pos = source.is_pos
 
