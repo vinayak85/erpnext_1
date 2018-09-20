@@ -188,7 +188,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 			//var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice_1", cur_frm.doc.name);		
                         // df.hidden = 0;
 			//this.frm.refresh_field('items');
-			/**/
+			/*
 			if(!this.frm.doc.is_return) {				
 				alert("hiii1");
 				var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
@@ -202,7 +202,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 				df.hidden = 0;
 				alert(" Ret");
 				//df.read_only = 0;
-			} /**/
+			} */
 		}
 
 		this.setup_quality_inspection();
@@ -263,7 +263,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.show_item_wise_taxes();
 		this.set_dynamic_labels();
 		this.setup_sms();
-		/**/
+		/*
 		if(!this.frm.doc.is_return) {
 			alert("hiii3");
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
@@ -278,7 +278,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 			alert(" Ret");
 			//df.read_only = 0;
 		}
-		/**/
+		*/
 			
 		//objToString(this.frm.doc);	
 	},
@@ -1243,7 +1243,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 				'posting_date': me.frm.doc.posting_date || frappe.datetime.nowdate(),
 			}
 			if(item.warehouse) filters["warehouse"] = item.warehouse
-			/**/
+			/*
 			//vin code start
 			if(doc.is_return) {
 				
@@ -1261,11 +1261,11 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 				filters: filters
 				}
 			}
-			/**/
-			/*return {
+			*/
+			return {
 				query : "erpnext.controllers.queries.get_batch_no",
 				filters: filters
-				}*/
+				}
 			//vin code end
 			
 		}
