@@ -5,6 +5,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 	setup: function() {
 		this._super();	
 		
+		alert(cur_frm);
 		cur_frm.fields_dict.items.grid.fields_map. against_invoice_1.hidden = 1;
 		cur_frm.refresh_field(“items”);
 		
