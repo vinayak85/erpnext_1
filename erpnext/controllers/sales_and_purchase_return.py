@@ -194,7 +194,7 @@ def make_return_doc(doctype, source_name, target_doc=None):
 		doc.is_return = 1
 		doc.return_against = source.name
 		doc.ignore_pricing_rule = 1
-		frappe.msgprint(_(doc.grand_total))
+		
 		if doctype == "Sales Invoice":
 			doc.is_pos = source.is_pos
 
@@ -214,6 +214,7 @@ def make_return_doc(doctype, source_name, target_doc=None):
 			if doc.doctype == 'Sales Invoice':
 				doc.set('payments', [])
 				for data in source.payments:
+					frappe.msgprint(_(data.amount))
 					doc.append('payments', {
 						'mode_of_payment': data.mode_of_payment,
 						'type': data.type,
