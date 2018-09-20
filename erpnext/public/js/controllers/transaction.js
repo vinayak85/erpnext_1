@@ -184,17 +184,20 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
                         // df.hidden = 0;
 			//this.frm.refresh_field('items');
 			/**/
-			if(!this.frm.doc.is_return) {
-			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
-                        df.hidden = 1;
-	                 alert("No Ret");
-			//df.read_only = 1;
-		        }else{
-			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
-                        df.hidden = 0;
-			alert(" Ret");
-			//df.read_only = 0;
-		        } /**/
+			if(!this.frm.doc.is_return) {				
+				alert("hiii1");
+				var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
+				df.hidden = 1;
+				alert("No Ret");
+				//df.read_only = 1;
+			}
+			else{
+				alert("hiii2");
+				var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
+				df.hidden = 0;
+				alert(" Ret");
+				//df.read_only = 0;
+			} /**/
 		}
 
 		this.setup_quality_inspection();
@@ -257,16 +260,20 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.setup_sms();
 		/**/
 		if(!this.frm.doc.is_return) {
+			alert("hiii3");
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
-                        df.hidden = 1;
-	                 alert("No Ret");
+			df.hidden = 1;
+			alert("No Ret");
 			//df.read_only = 1;
-		}else{
+		}
+		else{
+			alert("hiii4");
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
-                        df.hidden = 0;
+			df.hidden = 0;
 			alert(" Ret");
 			//df.read_only = 0;
-		}/**/
+		}
+		/**/
 			
 		//objToString(this.frm.doc);	
 	},
