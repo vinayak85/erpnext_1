@@ -5,9 +5,9 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 	setup: function() {
 		this._super();	
 		
-		alert(cur_frm);
+		/*alert(cur_frm);
 		cur_frm.fields_dict.items.grid.fields_map. against_invoice_1.hidden = 1;
-		cur_frm.refresh_field(“items”);
+		cur_frm.refresh_field(“items”);*/
 		
 		//var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice_1", cur_frm.doc.name);		
                // df.hidden = 1;
@@ -29,6 +29,8 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		
 		
 		frappe.ui.form.on(this.frm.doctype + " Item", "rate", function(frm, cdt, cdn) {
+			
+			alert(this.frm.doctype + " Item");
 			
 			var item = frappe.get_doc(cdt, cdn);
 			var has_margin_field = frappe.meta.has_field(cdt, 'margin_type');
