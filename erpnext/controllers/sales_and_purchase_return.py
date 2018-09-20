@@ -214,11 +214,12 @@ def make_return_doc(doctype, source_name, target_doc=None):
 			if doc.doctype == 'Sales Invoice':
 				doc.set('payments', [])
 				for data in source.payments:
-					frappe.msgprint(_(data.amount))
+					#frappe.msgprint(_(data.amount))
 					doc.append('payments', {
 						'mode_of_payment': data.mode_of_payment,
 						'type': data.type,
 						'amount': -1 * data.amount,
+						'discount_amount': -1 * data.discount_amount,#arjun
 						'base_amount': -1 * data.base_amount
 					})
 			elif doc.doctype == 'Purchase Invoice':
