@@ -183,7 +183,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 			//var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice_1", cur_frm.doc.name);		
                         // df.hidden = 0;
 			//this.frm.refresh_field('items');
-			/*
+			/**/
 			if(!this.frm.doc.is_return) {
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
                         df.hidden = 1;
@@ -194,7 +194,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
                         df.hidden = 0;
 			alert(" Ret");
 			//df.read_only = 0;
-		        } */
+		        } /**/
 		}
 
 		this.setup_quality_inspection();
