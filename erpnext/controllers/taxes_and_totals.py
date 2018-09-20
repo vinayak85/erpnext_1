@@ -74,6 +74,8 @@ class calculate_taxes_and_totals(object):
 					if item.discount_amount > 0 :
 						#frappe.msgprint(_(item.discount_amount))
 						item.net_amount = flt(item.amount-item.discount_amount,	item.precision("net_amount"))
+						if item.amount < 0 :#code for credit note
+							item.net_amount = flt(item.amount+item.discount_amount,	item.precision("net_amount"))
 						#item.amount = flt(item.amount-item.discount_amount,	item.precision("amount"))
 						#item.base_net_amount = flt(item.amount-item.discount_amount,	item.precision("base_net_amount"))
 				
