@@ -212,7 +212,7 @@ def make_return_doc(doctype, source_name, target_doc=None):
 
 		if doc.get("is_return"):
 			if doc.doctype == 'Sales Invoice':
-				doc.total_discount = -1 * source.total_discount
+				#doc.total_discount = -1 * source.total_discount
 				doc.set('payments', [])
 				for data in source.payments:
 					#frappe.msgprint(_(data.amount))
