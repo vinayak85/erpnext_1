@@ -921,6 +921,7 @@ def make_delivery_note(source_name, target_doc=None):
 @frappe.whitelist()
 def make_sales_return(source_name, target_doc=None):
 	from erpnext.controllers.sales_and_purchase_return import make_return_doc
+	frappe.msgprint(_(source_name))#arjun tested 20092018
 	return make_return_doc("Sales Invoice", source_name, target_doc)
 
 def set_account_for_mode_of_payment(self):
