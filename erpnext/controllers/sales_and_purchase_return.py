@@ -226,7 +226,6 @@ def make_return_doc(doctype, source_name, target_doc=None):
 				doc.paid_amount = -1 * source.paid_amount
 				doc.base_paid_amount = -1 * source.base_paid_amount
 
-		doc.discount_amount = -1 * source.discount_amount
 		msgprint(_("py"));
 		#doc.run_method("calculate_taxes_and_totals")
 
