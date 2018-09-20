@@ -255,7 +255,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
 		this.show_item_wise_taxes();
 		this.set_dynamic_labels();
 		this.setup_sms();
-		/*
+		/**/
 		if(!this.frm.doc.is_return) {
 			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","item_code", this.frm.doc.name);		
                         df.hidden = 1;
@@ -266,7 +266,7 @@ erpnext.TransactionController = erpnext.taxes_and_totals.extend({
                         df.hidden = 0;
 			alert(" Ret");
 			//df.read_only = 0;
-		}*/
+		}/**/
 			
 		//objToString(this.frm.doc);	
 	},
