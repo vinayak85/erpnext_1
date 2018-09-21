@@ -47,13 +47,16 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 			//cur_frm.fields_dict.items.grid.fields_map.against_invoice_1.hidden = 1;
 			//cur_frm.refresh_field(“items”);
 			
-			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice_1", cur_frm.doc.name);		
-			//df.hidden = 0; 
+			/*var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice_1", cur_frm.doc.name);		
+			df.hidden = 0; */
 			frm.fields_dict["items"].grid.set_column_disp(df, enabled);
 			
 			//frm.fields_dict["attributes"].grid.set_column_disp("attribute_value", true)
 			
 			//alert(df);//cur_frm.doc.items);
+			
+			cur_frm.fields_dict.items.grid.fields_map.against_invoice_1.hidden =0;
+			cur_frm.refresh_field(“items”);
 			
 			
 		}
