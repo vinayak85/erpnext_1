@@ -49,7 +49,7 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 			
 			/*var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice_1", cur_frm.doc.name);		
 			df.hidden = 0; */
-			frm.fields_dict["items"].grid.set_column_disp(df, enabled);
+			//frm.fields_dict["items"].grid.set_column_disp(df, enabled);
 			
 			//frm.fields_dict["attributes"].grid.set_column_disp("attribute_value", true)
 			
