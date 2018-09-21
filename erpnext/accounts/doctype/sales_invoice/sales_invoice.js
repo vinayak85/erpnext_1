@@ -41,7 +41,13 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 			// hide new msgbox
 			cur_frm.msgbox.hide();
 		}
-
+		
+		//arjun code start
+		if(doc.is_return) {
+			alert("return")
+		}
+		//arjun code end
+		
 		this.frm.toggle_reqd("due_date", !this.frm.doc.is_return);
 
 		this.show_general_ledger();
