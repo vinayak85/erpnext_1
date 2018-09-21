@@ -54,7 +54,8 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 			
 			alert(df);//cur_frm.doc.items);*/
 			
-			cur_frm.fields_dict.items.grid.set_column_disp(“against_invoice_1”, doc.is_return);
+			cur_frm.fields_dict['items'].grid.set_column_disp(against_invoice_1, doc.is_return);
+			//cur_frm.fields_dict.items.grid.set_column_disp(“against_invoice_1”, doc.is_return);
 		}
 		//arjun code end
 		
