@@ -44,9 +44,8 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 		
 		//arjun code start
 		if(doc.is_return) {
-			cur_frm.fields_dict.items.grid.fields_map.against_invoice_1.hidden = 1;
-			cur_frm.refresh_field(“items”);
-			
+			//cur_frm.fields_dict.items.grid.fields_map.against_invoice_1.hidden = 1;
+			//cur_frm.refresh_field(“items”);			
 			alert("return");
 		}
 		//arjun code end
