@@ -45,8 +45,10 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 		//arjun code start
 		if(doc.is_return) {
 			//cur_frm.fields_dict.items.grid.fields_map.against_invoice_1.hidden = 1;
-			//cur_frm.refresh_field(“items”);			
-			alert(cur_frm.doc.items);
+			//cur_frm.refresh_field(“items”);
+			var df = frappe.meta.get_docfield(this.frm.doctype + " Item","against_invoice_1", cur_frm.doc.name);		
+			df.hidden = 1; 
+			alert(df);//cur_frm.doc.items);
 		}
 		//arjun code end
 		
