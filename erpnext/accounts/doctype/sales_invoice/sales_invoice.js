@@ -37,6 +37,10 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 
 	refresh: function(doc, dt, dn) {
 		this._super();
+		
+		var d = locals[cdt][cdn];
+		alert(d.item_code);
+		
 		if(cur_frm.msgbox && cur_frm.msgbox.$wrapper.is(":visible")) {
 			// hide new msgbox
 			cur_frm.msgbox.hide();
@@ -482,7 +486,6 @@ cur_frm.set_query("debit_to", function(doc) {
 
 cur_frm.set_query("asset", "items", function(doc, cdt, cdn) {
 	var d = locals[cdt][cdn];
-	alert(d.item_code);
 	return {
 		filters: [
 			["Asset", "item_code", "=", d.item_code],
