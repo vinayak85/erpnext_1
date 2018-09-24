@@ -38,8 +38,8 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 	refresh: function(doc, dt, dn) {
 		this._super();
 		
-		var d = locals[dt][dn];
-		alert(d[0].item_code);
+		//var d = locals[dt][dn];
+		//alert(d[0].item_code);
 		
 		if(cur_frm.msgbox && cur_frm.msgbox.$wrapper.is(":visible")) {
 			// hide new msgbox
