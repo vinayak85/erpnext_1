@@ -523,12 +523,6 @@ frappe.ui.form.on('Sales Invoice', {
 				}
 			}
 		}
-		
-		
-		// aarrjjuunn
-		frm.fields_dict['items'].grid.get_field('expense_account').get_query = function(doc) {
-			alert("Hi...");
-		}
 
 		frm.set_query('company_address', function(doc) {
 			if(!doc.company) {
@@ -556,6 +550,13 @@ frappe.ui.form.on('Sales Invoice', {
 	}
 })
 
+frappe.ui.form.on('Sales Invoice Item', {
+	time_sheet: function(frm, cdt, cdn){
+		alert("Hiiiii.....");		
+	}
+}) 
+ 
+ 
 frappe.ui.form.on('Sales Invoice Timesheet', {
 	time_sheet: function(frm, cdt, cdn){
 		var d = locals[cdt][cdn];
