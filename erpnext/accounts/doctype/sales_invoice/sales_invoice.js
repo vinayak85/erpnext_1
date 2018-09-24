@@ -116,7 +116,7 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 
 		this.set_default_print_format();
 	},
-
+	
 	set_default_print_format: function() {
 		// set default print format to POS type
 		if(cur_frm.doc.is_pos) {
