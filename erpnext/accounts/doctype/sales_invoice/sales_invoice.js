@@ -482,6 +482,7 @@ cur_frm.set_query("debit_to", function(doc) {
 
 cur_frm.set_query("asset", "items", function(doc, cdt, cdn) {
 	var d = locals[cdt][cdn];
+	alert(d.item_code);
 	return {
 		filters: [
 			["Asset", "item_code", "=", d.item_code],
