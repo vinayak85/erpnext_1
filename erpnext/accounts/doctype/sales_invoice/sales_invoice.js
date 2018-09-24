@@ -39,7 +39,7 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 		this._super();
 		
 		var d = locals[dt][dn];
-		alert(d.item_code);
+		alert(d[0].item_code);
 		
 		if(cur_frm.msgbox && cur_frm.msgbox.$wrapper.is(":visible")) {
 			// hide new msgbox
