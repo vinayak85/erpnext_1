@@ -33,6 +33,16 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 			me.frm.script_manager.trigger("is_pos");
 			me.frm.refresh_fields();
 		}
+		
+		exp=0.0;
+		var tbl1 = frm.doc.items || [];		
+		for (var i = 0; i < tbl1.length; i++) {
+			//if (tbl2[i].salary_component == "Expenses") {
+				exp += tbl1[i].qty;
+			//}
+		}
+		alert(exp);
+		
 	},
 
 	refresh: function(doc, dt, dn) {
