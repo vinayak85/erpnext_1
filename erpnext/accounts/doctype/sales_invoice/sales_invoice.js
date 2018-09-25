@@ -41,6 +41,16 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 		//var d = locals[dt][dn];
 		//alert(d[0].item_code);
 		
+		exp=0.0;
+		var tbl1 = frm.doc.items || [];		
+		for (var i = 0; i < tbl1.length; i++) {
+			//if (tbl2[i].salary_component == "Expenses") {
+				exp += tbl1[i].qty;
+			//}
+		}
+		alert(exp);
+		
+		
 		if(cur_frm.msgbox && cur_frm.msgbox.$wrapper.is(":visible")) {
 			// hide new msgbox
 			cur_frm.msgbox.hide();
