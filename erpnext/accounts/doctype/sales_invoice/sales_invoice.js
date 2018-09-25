@@ -42,12 +42,12 @@ erpnext.accounts.SalesInvoiceController = erpnext.selling.SellingController.exte
 		//alert(d[0].item_code);
 		
 		exp=0.0;
-		var tbl1 = frm.doc.items || [];		
+		/*var tbl1 = frm.doc.items || [];		
 		for (var i = 0; i < tbl1.length; i++) {
 			//if (tbl2[i].salary_component == "Expenses") {
 				exp += tbl1[i].qty;
 			//}
-		}
+		}*/
 		alert(exp);
 		
 		
